@@ -9,7 +9,7 @@ class LottoController {
 
   #inputView;
 
-  #lottos;
+  #userLottos;
 
   #winningNumbers;
 
@@ -26,8 +26,7 @@ class LottoController {
   async #buyLottos() {
     try {
       this.#purchaseAmount = await this.#inputView.readPurchaseAmount();
-      const lottoStoreInstance = new LottoStore(this.#purchaseAmount);
-      this.#lottos = lottoStoreInstance.getUserLottos();
+      this.#userLottos = new LottoStore(this.#purchaseAmount).getUserLottos();
     } catch (error) {
       OutputView.printError(error);
       await this.#buyLottos();
@@ -35,17 +34,16 @@ class LottoController {
   }
 
   async #showLottos() {
-    OutputView.printLottosQuantity(this.#lottos.length);
-    OutputView.printLottos(this.#lottos);
+    OutputView.printLottosQuantity(this.#userLottos.length);
+    OutputView.printLottos(this.#userLottos);
   }
 
   async #drawWinningNumbers() {
     try {
-      const numbers = await this.#inputView.readWinningNumbers();
-      const LottoInstance = new Lotto(
-        numbers.split(SYMBOLS.comma).map(number => Number(number)),
-      );
-      this.#winningNumbers = LottoInstance.getWinningNumbers(numbers);
+      const readInput = (await this.#inputView.readWinningNumbers())
+        .split(SYMBOLS.comma)
+        .map(Number);
+      this.#winningNumbers = new Lotto(readInput).getWinningNumbers();
     } catch (error) {
       OutputView.printError(error);
       await this.#drawWinningNumbers();
