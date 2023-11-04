@@ -16,13 +16,13 @@ describe('LottoStore 모델 테스트', () => {
     );
   });
 
-  test('getLottos() 메소드 테스트', () => {
+  test('getUserLottos() 메소드 테스트', () => {
     Random.pickUniqueNumbersInRange = jest.fn();
     Random.pickUniqueNumbersInRange.mockReturnValue([1, 2, 3, 4, 5, 6]);
 
     const purchaseAmount = '2000';
     const lottoStore = new LottoStore(purchaseAmount);
-    const lottos = lottoStore.getLottos();
+    const lottos = lottoStore.getUserLottos();
 
     expect(lottos).toHaveLength(2);
     lottos.forEach(lotto => expect(lotto).toEqual([1, 2, 3, 4, 5, 6]));
