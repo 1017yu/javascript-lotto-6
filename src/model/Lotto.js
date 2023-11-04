@@ -16,7 +16,7 @@ class Lotto {
     return this.#numbers;
   }
 
-  getLotto() {
+  getUserLotto() {
     return this.#numbers;
   }
 }
