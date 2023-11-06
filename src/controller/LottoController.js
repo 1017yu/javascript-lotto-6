@@ -2,7 +2,7 @@ import SYMBOLS from '../constants/symbols.js';
 import Bonus from '../model/Bonus.js';
 import Lotto from '../model/Lotto.js';
 import LottoStore from '../model/LottoStore.js';
-import Stat from '../model/Stat.js';
+import Stats from '../model/Stats.js';
 import InputView from '../view/InputView.js';
 import OutputView from '../view/OutputView.js';
 
@@ -72,7 +72,7 @@ class LottoController {
   #analyzeLottos() {
     OutputView.printResult();
 
-    const statInstance = new Stat(
+    const statInstance = new Stats(
       this.#userLottos,
       this.#winningNumbers,
       this.#bonusNumber,
