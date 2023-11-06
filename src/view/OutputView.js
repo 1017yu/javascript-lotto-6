@@ -18,7 +18,7 @@ const OutputView = {
   },
 
   printResult() {
-    Console.print(OUTPUT_MESSAGES.result);
+    Console.print(OUTPUT_MESSAGES.result + OUTPUT_MESSAGES.divisionLine);
   },
 
   printStats(stats) {
