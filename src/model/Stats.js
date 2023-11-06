@@ -1,7 +1,7 @@
 import OPTIONS from '../constants/options.js';
 import { INDEX_TABLE, RANK } from '../constants/rank.js';
 
-class Stat {
+class Stats {
   #userLottos;
 
   #winningNumbers;
@@ -52,4 +52,4 @@ class Stat {
   }
 }
 
-export default Stat;
+export default Stats;
