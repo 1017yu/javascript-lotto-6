@@ -96,7 +96,6 @@
 
 // Console.print <출력 뷰>
 당첨 통계
-// Console.print <출력 뷰>
 ---
 /**
  * Console.print <출력 뷰>
@@ -170,5 +169,7 @@
 
 - [x] Validators
 - [x] 유효성 판별 함수 별 단위 테스트 코드 작성
+
+- [x] caculateProfitRate `toFixed(1)` 조건부 사용 (50.0% => 50%)
 
 - [x] JSDoc 작성
